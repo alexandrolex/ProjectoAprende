@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/fondo">
-
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/resul1"
+        android:id="@+id/resul2"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/resul"
+        android:layout_marginEnd="22dp"
+        android:text="Nota" />
+
+    <TextView
+        android:id="@+id/resul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -16,22 +23,13 @@
         android:text="Tema" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/repetir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/resul1"
+        android:layout_alignBaseline="@+id/resul2"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="106dp"
-        android:text="Modificar" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/resul1"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="11dp"
-        android:text="Eliminar" />
+        android:layout_marginEnd="74dp"
+        android:text="Repetir" />
 
 
 </RelativeLayout>
