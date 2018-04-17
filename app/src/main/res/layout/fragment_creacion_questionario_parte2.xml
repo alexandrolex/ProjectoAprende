@@ -13,8 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="217dp"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_marginTop="221dp"
         android:text="Respuestas"
         android:textColor="?android:attr/colorForeground" />
 
@@ -22,66 +22,59 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/textView9"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="-48dp"
+        android:layout_marginStart="48dp"
         android:text="Creacion Questionario 2"
         android:textColor="?attr/editTextColor"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="61dp"
-        android:text="Elige el tipo de questionario que vas a realizar"
-        android:textColor="?android:attr/colorForeground" />
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="48dp"
+        android:text="Pregunta" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView11"
+        android:layout_alignStart="@+id/textView17"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText5"
+        android:layout_alignStart="@+id/editText9"
+        android:layout_marginBottom="-160dp"
+        android:text="Pista" />
+
+    <EditText
+        android:id="@+id/editText5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="96dp"
-        android:text="VerdaderoFalso" />
-
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView15"
-        android:layout_alignTop="@+id/checkBox"
-        android:text="Mulitpregunta" />
-
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="155dp"
-        android:text="Rellena el hueco" />
-
-    <CheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/checkBox4"
-        android:layout_alignTop="@+id/checkBox5"
-        android:text="Sopa de letras" />
+        android:layout_alignStart="@+id/textView9"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editText8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="210dp"
+        android:layout_alignStart="@+id/textView17"
+        android:layout_marginBottom="213dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Primera Respuesta" />
@@ -91,8 +84,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="148dp"
+        android:layout_marginBottom="143dp"
+        android:layout_toStartOf="@+id/imageView4"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Segunda Respuesta" />
@@ -101,9 +94,8 @@
         android:id="@+id/editText10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="84dp"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_alignStart="@+id/editText9"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Tercera Respuesta" />
@@ -113,8 +105,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="22dp"
+        android:layout_alignStart="@+id/editText9"
+        android:layout_marginBottom="19dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Cuarta Respuesta" />

@@ -9,6 +9,50 @@
 
 
     <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="61dp"
+        android:text="Elige el tipo de questionario que vas a realizar"
+        android:textColor="?android:attr/colorForeground" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_marginTop="96dp"
+        android:text="VerdaderoFalso" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView14"
+        android:layout_alignTop="@+id/checkBox"
+        android:text="Mulitpregunta" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_marginTop="155dp"
+        android:text="Rellena el hueco" />
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView14"
+        android:layout_alignTop="@+id/checkBox5"
+        android:text="Sopa de letras" />
+    <TextView
         android:id="@+id/textView19"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
@@ -17,15 +61,7 @@
         android:layout_marginStart="133dp"
         android:text="Dificultad" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="48dp"
-        android:text="Pregunta" />
+
 
     <TextView
         android:id="@+id/textView10"
@@ -37,41 +73,14 @@
         android:layout_marginTop="12dp"
         android:text="Creacion Questionario" />
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_marginTop="76dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_marginTop="159dp"
-        android:text="Pista" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_marginTop="188dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView3"
-        android:layout_alignStart="@+id/textView9"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_marginBottom="222dp"
         android:text="Numero de Preguntas" />
 
     <EditText
@@ -79,17 +88,27 @@
         android:layout_width="62dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView19"
-        android:layout_alignTop="@+id/editText12"
+        android:layout_below="@+id/textView12"
+        android:layout_marginTop="-216dp"
+        android:ems="10"
+        android:inputType="textPersonName|textPostalAddress" />
+
+    <EditText
+        android:id="@+id/editText13"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView12"
+        android:layout_alignTop="@+id/editText6"
         android:ems="10"
         android:inputType="textPersonName|textPostalAddress" />
 
     <EditText
         android:id="@+id/editText12"
-        android:layout_width="62dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_width="59dp"
+        android:layout_height="49dp"
         android:layout_alignStart="@+id/textView9"
-        android:layout_marginBottom="166dp"
+        android:layout_below="@+id/textView12"
+        android:layout_marginTop="-2dp"
         android:ems="10"
         android:inputType="textPersonName|textPostalAddress" />
 
@@ -98,8 +117,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_marginBottom="124dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="121dp"
+        android:layout_marginStart="32dp"
         android:text="Tema" />
 
     <EditText
@@ -107,8 +127,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_marginBottom="66dp"
+        android:layout_alignStart="@+id/textView12"
+        android:layout_marginBottom="65dp"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -125,7 +145,9 @@
         android:id="@+id/imageView3"
         android:layout_width="122dp"
         android:layout_height="130dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/textView11"
+        android:layout_marginBottom="150dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/quijote1" />
 </RelativeLayout>
