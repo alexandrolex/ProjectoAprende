@@ -1,30 +1,31 @@
 package com.example.alejandrosalguero.projectoaprende;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Registro.OnFragmentInteractionListener} interface
+ * {@link Entrar.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Registro#newInstance} factory method to
+ * Use the {@link Entrar#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Registro extends Fragment {
+public class Entrar extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,7 +37,7 @@ public class Registro extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Registro() {
+    public Entrar() {
         // Required empty public constructor
     }
 
@@ -46,11 +47,11 @@ public class Registro extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Registro.
+     * @return A new instance of fragment Entrar.
      */
     // TODO: Rename and change types and number of parameters
-    public static Registro newInstance(String param1, String param2) {
-        Registro fragment = new Registro();
+    public static Entrar newInstance(String param1, String param2) {
+        Entrar fragment = new Entrar();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,25 +70,16 @@ public class Registro extends Fragment {
     private EditText mEmailField;
     private EditText mPasswordField;
     private Button Entrar,crear;
-    private CheckBox alumno,profe;
-    private static final int PICK_IMAGE = 100;
-    private Uri imageUri;
-    private ImageView foto_gallery;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        View v= inflater.inflate(R.layout.fragment_registro, container, false);
+        View v= inflater.inflate(R.layout.fragment_entrar, container, false);
         mEmailField = v.findViewById(R.id.Correo);
-       mPasswordField = v.findViewById(R.id.password);
-        foto_gallery = (ImageView) v.findViewById(R.id.imagen);
-        // Buttons
-
+        mPasswordField = v.findViewById(R.id.password);
         Entrar = v.findViewById(R.id.password);
         crear = v.findViewById(R.id.password);
-        alumno = v.findViewById(R.id.checkBox2);
-        profe = v.findViewById(R.id.checkBox3);
 
         Entrar.setOnClickListener(new View.OnClickListener() {
 
@@ -95,17 +87,10 @@ public class Registro extends Fragment {
             public void onClick(View v) {
                 MainActivity CrearCuenta = (MainActivity)getActivity();
 
-                CrearCuenta.createAccount( mEmailField.toString(),mPasswordField.toString());
-                if(alumno.isChecked()){
-                    Intent intent = new Intent(getContext(), Alumno.class);
 
-                    startActivity(intent);
-                }
-                if(profe.isChecked()){
-                    Intent intent = new Intent(getContext(), Profesor.class);
+                CrearCuenta.signIn(mEmailField.toString(),mPasswordField.toString());
 
-                    startActivity(intent);
-                }
+
             }
         });
         crear.setOnClickListener(new View.OnClickListener() {
@@ -113,35 +98,39 @@ public class Registro extends Fragment {
             @Override
             public void onClick(View v) {
                 MainActivity Registro = (MainActivity)getActivity();
-
-
                 Registro.Registro();
 
 
 
             }
         });
-        foto_gallery.setOnClickListener(new View.OnClickListener() {
+
+         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("https://projectoaprende.firebaseio.com/Usuario/");
+        ref.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onClick(View v) {
-                openGallery();
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                Usuario newPost = dataSnapshot.getValue(Usuario.class);
+                System.out.println("Correo: " + newPost.correo);
+                System.out.println("Contraseña: " + newPost.contraseña);
+                System.out.println("Rol: " + newPost.rol);
             }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {}
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
         });
-
-return v;
-    }
-    private void openGallery(){
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, PICK_IMAGE);
+        return v;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(resultCode == Activity.RESULT_OK && requestCode == PICK_IMAGE){
-            imageUri = data.getData();
-            foto_gallery.setImageURI(imageUri);
-        }
-    }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -180,5 +169,4 @@ return v;
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
 }
