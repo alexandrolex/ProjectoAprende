@@ -15,6 +15,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,6 +83,8 @@ public class Registro extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("https://projectoaprende.firebaseio.com/Usuario/");
 
         View v= inflater.inflate(R.layout.fragment_registro, container, false);
         mEmailField = v.findViewById(R.id.Correo);
@@ -88,7 +96,13 @@ public class Registro extends Fragment {
         crear = v.findViewById(R.id.password);
         alumno = v.findViewById(R.id.checkBox2);
         profe = v.findViewById(R.id.checkBox3);
+        DatabaseReference usersRef = ref.child("users");
 
+        Map<String, Usuario> users = new HashMap<>();
+        users.put("alanisawesome", new Usuario(mEmailField.toString(), mPasswordField.toString(),));
+        users.put("gracehop", new Usuario("December 9, 1906", "Grace Hopper"));
+
+        usersRef.setValueAsync(users);
         Entrar.setOnClickListener(new View.OnClickListener() {
 
             @Override

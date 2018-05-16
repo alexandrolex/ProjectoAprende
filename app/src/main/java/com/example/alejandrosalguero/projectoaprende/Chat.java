@@ -1,5 +1,6 @@
 package com.example.alejandrosalguero.projectoaprende;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -45,7 +46,7 @@ public class Chat extends AppCompatActivity {
                                     Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == SIGN_IN_REQUEST_CODE) {
+        if(requestCode == Activity.SIGN_IN_REQUEST_CODE) {
             if(resultCode == RESULT_OK) {
                 Toast.makeText(this,
                         "Successfully signed in. Welcome!",

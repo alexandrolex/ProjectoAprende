@@ -20,7 +20,8 @@
             android:name=".Profesor"
             android:label="@string/title_activity_profesor"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Alumno"></activity>
+        <activity android:name=".Alumno" />
+        <activity android:name=".Chat"></activity>
     </application>
 
 </manifest>
